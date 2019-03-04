@@ -1,0 +1,13 @@
+notes
+- mysql bug: `SequelizeConnectionError: Client does not support authentication protocol requested by server; consider upgrading MySQL client`
+  - solution: `alter user 'USER'@'localhost' identified with mysql_native_password by 'PASSWORD'`
+- removing join table attributes from query results
+  - `joinTableAttributes: []`
+    - [solution from here](https://stackoverflow.com/a/42293075/7542831)
+- model names as Caps but as lowercase in instance props
+  - add alias to association and queries / scopes
+- automatic eager loading of associations
+  - **does not apply to create / save / update**
+    - use `setDataValue('alias', instance.getAssociation())`
+  - use `defaultScope` option in model definition
+    - use `include: []` syntax - don't forget aliases!

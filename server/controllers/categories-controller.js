@@ -4,6 +4,7 @@ const CategoriesController = express.Router();
 
 CategoriesController.get('/', async (req, res) => {
   const { Category } = req.context.models;
+
   const categories = await Category.findAll();
 
   return res.json({ categories });
@@ -15,7 +16,7 @@ CategoriesController.post('/', async (req, res) => {
 
   const category = await Category.create({ name });
 
-  res.json({ category });
+  return res.json({ category });
 });
 
 module.exports = CategoriesController;

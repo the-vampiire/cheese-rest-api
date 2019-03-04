@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       // eager loads category for every cheese
       defaultScope: {
+        attributes: ['id', 'name', 'description'],
         include: [{
           as: 'category',
           required: true,

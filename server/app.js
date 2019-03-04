@@ -1,5 +1,5 @@
-const express = require('express');
 const cors = require('cors');
+const express = require('express');
 const bodyParser = require('body-parser');
 
 const {
@@ -15,7 +15,7 @@ app.use(
   cors(),
   bodyParser.json(), 
   bodyParser.urlencoded({ extended: false }),
-  (req, _, next) => { console.log(req.body); req.context = { models }; next(); },
+  (req, _, next) => { req.context = { models }; next(); },
 );
 
 app.use('/menus', MenusController);
